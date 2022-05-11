@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/store/api.service';
+import { Facade } from './+state/facade';
 
 export interface Data {
   id: number;
@@ -47,7 +48,7 @@ export interface Data {
   `,
 })
 export class UsersComponent implements OnInit {
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService, private usersFacade: Facade) {}
 
   checked = false;
   loading = false;
@@ -107,7 +108,7 @@ export class UsersComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.apiService.get<string>('users').subscribe((v) => console.log(v));
+    this.usersFacade.getUsers();
     this.listOfData = new Array(100).fill(0).map((_, index) => ({
       id: index,
       name: `Edward King ${index}`,

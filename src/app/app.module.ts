@@ -15,23 +15,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
-import { reducerFactory as configReducerFactory } from './store/config/config.reducer';
-import {environment} from "../environments/environment";
-import {StoreDevtoolsModule} from "@ngrx/store-devtools";
-
+import { reducer as configReducer } from './store/config/reducer';
+import { environment } from '../environments/environment';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { FeaturesEnum } from './store/features.enum';
 
 registerLocaleData(en);
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({
-      config: configReducerFactory,
-    }, {}),
+    StoreModule.forRoot(
+      {
+        [FeaturesEnum.CONFIG]: configReducer,
+      },
+      {}
+    ),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
 
     EffectsModule.forRoot([]),
@@ -43,6 +44,6 @@ registerLocaleData(en);
     NzMenuModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

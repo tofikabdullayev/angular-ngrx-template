@@ -4,11 +4,23 @@ import { UsersComponent } from './users.component';
 import { UsersRoutingModule } from './users-routing.module';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { ApiService } from 'src/app/store/api.service';
+import { StoreModule } from '@ngrx/store';
+import { FeaturesEnum } from '../../store/features.enum';
+import { reducer } from './+state/reducer';
+import { Facade } from './+state/facade';
+import { Effects } from './+state/effects';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [UsersComponent],
-  imports: [UsersRoutingModule, CommonModule, NzTableModule],
+  imports: [
+    UsersRoutingModule,
+    CommonModule,
+    NzTableModule,
+    StoreModule.forFeature(FeaturesEnum.USERS_STATE, reducer),
+    EffectsModule.forFeature([Effects]),
+  ],
   exports: [UsersComponent],
-  providers: [ApiService],
+  providers: [ApiService, Facade],
 })
 export class UsersModule {}

@@ -1,3 +1,4 @@
 export enum FeaturesEnum {
-  CONFIG = 'config'
+  CONFIG = 'config',
+  USERS_STATE = 'usersState',
 }
