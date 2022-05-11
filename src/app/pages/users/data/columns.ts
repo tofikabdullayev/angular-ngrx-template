@@ -23,7 +23,15 @@ export const columns: ColumnItem[] = [
     sortFn: (a: UserModel, b: UserModel) => a.name.localeCompare(b.name),
     sortDirections: ['ascend', 'descend', null],
     filterMultiple: true,
-    listOfFilter: [],
+    listOfFilter: [
+      { text: 'Clementina', value: 'Clementina' },
+      { text: 'Leanne', value: 'Leanne' },
+      { text: 'Nicholas', value: 'Nicholas' },
+      { text: 'Patricia', value: 'Patricia' },
+      { text: 'Chelsey', value: 'Chelsey' },
+      { text: 'Kurtis', value: 'Kurtis' },
+      { text: 'Glenna', value: 'Glenna' },
+    ],
     filterFn: (list: string[], item: UserModel) =>
       list.some((name) => item.name.indexOf(name) !== -1),
   },
