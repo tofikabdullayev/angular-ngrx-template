@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/state/api.service';
+import { ApiService } from 'src/app/store/api.service';
 
 export interface Data {
   id: number;

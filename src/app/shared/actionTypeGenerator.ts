@@ -4,13 +4,16 @@ interface ActionSagaTypes {
   error: string;
 }
 
-export const actionTypeGenerator = (
+export const httpActionTypeGenerator = (
   pageName: string,
   operation: string
 ): ActionSagaTypes => {
   return {
-    start: `[${pageName}] operation`,
-    complete: `[${pageName}] operation Complete`,
-    error: `[${pageName}] operation Error`,
+    start: `[${pageName}] ${operation}`,
+    complete: `[${pageName}] ${operation} Complete`,
+    error: `[${pageName}] ${operation} Error`,
   };
 };
+
+
+

@@ -1,13 +1,13 @@
 import { createAction, props } from '@ngrx/store';
-import { actionTypeGenerator } from 'src/app/shared/actionTypeGenerator';
+import { httpActionTypeGenerator } from 'src/app/shared/actionTypeGenerator';
 import { UsersModel } from './users.model';
 
-const getUsers = createAction(actionTypeGenerator('Users', 'get').start);
+const getUsers = createAction(httpActionTypeGenerator('Users', 'get').start);
 const getUsersComplete = createAction(
-  actionTypeGenerator('Users', 'get').complete,
+  httpActionTypeGenerator('Users', 'get').complete,
   props<{ users: UsersModel[] }>()
 );
-const getUsersError = createAction(actionTypeGenerator('Users', 'get').error);
+const getUsersError = createAction(httpActionTypeGenerator('Users', 'get').error);
 
 export const UsersActions = {
   getUsers,

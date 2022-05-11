@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { UsersComponent } from './users.component';
 import { UsersRoutingModule } from './users-routing.module';
 import { NzTableModule } from 'ng-zorro-antd/table';
-import { ApiService } from 'src/app/state/api.service';
+import { ApiService } from 'src/app/store/api.service';
 
 @NgModule({
   declarations: [UsersComponent],
