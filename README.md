@@ -1,4 +1,4 @@
-\1. **Angular** https://angular.io/guide/styleguide (short overview)
+1. **Angular** https://angular.io/guide/styleguide (short overview)
 
 1.1.Single responsibility (https://en.wikipedia.org/wiki/Single-responsibility\_principle ) 1.1.1. Define **one thing**, such as a service or component, per file. One  component per file makes it far easier to read, maintain, and avoid collisions  with teams in source control.
 
