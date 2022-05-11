@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { filter, Observable } from 'rxjs';
+import { filter, Observable, skip } from 'rxjs';
 import { Selectors } from './selectors';
 import { UserModel } from '../../../models/user.model';
 import { Actions } from './actions';
@@ -9,15 +9,16 @@ import { Actions } from './actions';
 export class Facade {
   constructor(private store: Store<any>) {}
 
-  users$: Observable<UserModel[] | null> = this.store.pipe(
+  users$: Observable<UserModel[]> = this.store.pipe(
     select(Selectors.users),
+    skip(1),
     filter((v) => !!v)
   );
-  loading$: Observable<boolean | null> = this.store.pipe(
+  loading$: Observable<boolean> = this.store.pipe(
     select(Selectors.loading),
     filter((v) => !!v)
   );
-  error$: Observable<any | null> = this.store.pipe(
+  error$: Observable<any> = this.store.pipe(
     select(Selectors.error),
     filter((v) => !!v)
   );

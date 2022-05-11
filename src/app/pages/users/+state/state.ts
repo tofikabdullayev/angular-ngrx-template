@@ -7,7 +7,7 @@ export interface UsersState {
 }
 
 export const initialState: UsersState = {
-  loading: false,
+  loading: true,
   users: [],
   error: null,
 };

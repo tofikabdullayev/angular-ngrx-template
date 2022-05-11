@@ -10,6 +10,8 @@ import { reducer } from './+state/reducer';
 import { Facade } from './+state/facade';
 import { Effects } from './+state/effects';
 import { EffectsModule } from '@ngrx/effects';
+import { NzSkeletonModule } from 'ng-zorro-antd/skeleton';
+import { NzTypographyModule } from 'ng-zorro-antd/typography';
 
 @NgModule({
   declarations: [UsersComponent],
@@ -19,6 +21,8 @@ import { EffectsModule } from '@ngrx/effects';
     NzTableModule,
     StoreModule.forFeature(FeaturesEnum.USERS_STATE, reducer),
     EffectsModule.forFeature([Effects]),
+    NzSkeletonModule,
+    NzTypographyModule,
   ],
   exports: [UsersComponent],
   providers: [ApiService, Facade],
